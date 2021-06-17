@@ -1,17 +1,37 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React, { Component } from 'react';
+import { render } from 'react-dom';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import CardList from './repoList/RepoList';
+import FileList from './fileList/FileList'
+import AppComponent from './App'
+import 'bootstrap/dist/css/bootstrap.css';
+// Put any other imports below so that CSS from your
+// components takes precedence over default styles.
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+interface AppProps { }
+interface AppState {
+  name: string;
+}
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+class App extends Component<AppProps, AppState> {
+  constructor(props:any) {
+    super(props);
+    this.state = {
+      name: 'React'
+    };
+  }
+
+  render() {
+    return (
+      <Router>
+        <Switch>
+          <Route path="/" exact component={AppComponent} />
+          <Route path="/repo-lists" component={CardList} />
+          <Route path="/files-list/:user" component={FileList} />
+        </Switch>
+      </Router>
+    );
+  }
+}
+
+render(<App />, document.getElementById('root'));

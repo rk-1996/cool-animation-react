@@ -1,6 +1,34 @@
+*{
+  /* background-color: #282c34; */
+}
+
 .App {
   text-align: center;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* background-image: ''; */
 }
+
+body{
+  background-color: #282c34 !important;
+  overflow: auto;
+  min-height: 100vh;
+}
+
+.repo-root-div{
+  display: flex;
+  padding: 10px;
+  background-color: rgb(40, 44, 52);
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: calc(100vh + 0px);
+  overflow: auto;
+  /* height: 100vh; */
+  /* height: calc(100vh + 293px); */
+}
+
+
 
 .App-logo {
   height: 40vmin;
@@ -13,15 +41,286 @@
   }
 }
 
+@-webkit-keyframes mover {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-10px); }
+}
+@keyframes mover {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-10px); }
+}
+
+.github-logo-div{
+  /* background-color: #797f8c; */
+  -webkit-animation: mover 1s infinite  alternate;
+    animation: mover 1s infinite  alternate;
+    -webkit-animation: mover 1s infinite  alternate;
+    animation: mover 1s infinite  alternate;
+  border-radius: 66px;
+  padding: 20px;
+}
+
+.divLoader{
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  margin:auto;
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+  position:fixed;
+}
+
+section{
+  /* height: 100vh; */
+}
+
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 111vh;
   display: flex;
+  z-index: 11111;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.app{
+  height: 100vh;
+}
+
+.square-dynamic-class{
+  position: absolute;
+  pointer-events: none;
+  background: #61dafb;
+  border-radius: 100px;
+  animation: animate 5s linear infinite;
+}
+
+@keyframes animate {
+  0%{
+    transform : scale(0) translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10%{
+    opacity: 1;
+  }
+  90%{
+    opacity: 1;
+  }
+  100%{
+    transform : scale(1) translateY(-500) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.repository-list-icon-div{
+  background-color: #ffffff;
+  border-radius: 100px;
+  padding: 5px 10px 5px 10px;
+  font-size: 20px;
+  color: rgb(108 117 125 / 95%);
+  transition: all 0.25s ease-in;
+}
+
+.git-repo-icon-div{
+  background-color: #ffffff;
+  border-radius: 100px;
+  padding: 5px 10px 5px 10px;
+  font-size: 20px;
+  color: rgb(108 117 125 / 95%);
+  transition: all 0.25s ease-in;
+  cursor: pointer;
+}
+
+.git-repo-icon-div:hover{
+  background-color: rgb(108 117 125 / 95%);
+  color: #ffffff;
+}
+
+.git-user-login-button{
+  border-radius: 20px;
+  background: #2196f3;
+  border-color: #2196f3;
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgb(0 0 0 / 0%);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
+}
+
+.git-user-login-button:hover{
+  background: #2196f3;
+  border-color: #2196f3;
+  box-shadow: 0 10px 10px -10px rgb(0 0 0 / 50%);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.input-user-name-git{
+  border-radius: 20px;
+}
+
+
+.repo-column-main-div:hover .repository-list-icon-div{
+  background-color: rgb(108 117 125 / 95%);
+  color: #ffffff;
+}
+
+.mtb-20{
+  margin-bottom: 30px !important;
+}
+
+.username-div{
+  color: #ffffff;
+  font-family: sans-serif;
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+.user-info-div{
+  height: 200px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.user-info-image-div{
+  height: 120px;
+  border-radius: 100px;
+}
+
+ul {
+  margin-left: 20px;
+}
+
+.wtree li {
+  list-style-type: none;
+  margin: 10px 0 10px 10px;
+  position: relative;
+}
+.wtree li:before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -20px;
+  border-left: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  width: 20px;
+  height: 15px;
+}
+.wtree li:after {
+  position: absolute;
+  content: "";
+  top: 5px;
+  left: -20px;
+  border-left: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+  width: 20px;
+  height: 100%;
+}
+.wtree li:last-child:after {
+  display: none;
+}
+.wtree li span {
+  display: block;
+  border: 1px solid #ddd;
+  padding: 10px;
+  color: #888;
+  text-decoration: none;
+}
+
+.wtree li span:hover, .wtree li span:focus {
+  background: #eee;
+  color: #000;
+  border: 1px solid #aaa;
+}
+.wtree li span:hover + ul li span, .wtree li span:focus + ul li span {
+  background: #eee;
+  color: #000;
+  border: 1px solid #aaa;
+}
+.wtree li span:hover + ul li:after, .wtree li span:hover + ul li:before, .wtree li span:focus + ul li:after, .wtree li span:focus + ul li:before {
+  border-color: #aaa;
+}
+
+.repo-column-main-div{
+  word-break: break-word;
+      display: flex;
+    padding: 0 20px 0px 10px;
+    align-items: center;
+    background-color: rgb(108 117 125 / 95%);
+    border-radius: 40px;
+    box-shadow: 2px 1px 1px 1px rgb(108 117 125 / 18%);
+    min-height: 73px;
+    transition: all 0.25s ease-in;
+}
+
+.git-user-form-div{
+  padding: 40px;
+    text-align: center;
+    z-index: 1111;
+    border-radius: 30px;
+    background-color: #5d6169ed;
+    box-shadow: 2px 1px 1px 1px rgb(108 117 125 / 18%)
+}
+
+.div-image-height{
+  /* height: inherit; */
+}
+
+.user-column-main-div{
+  word-break: break-word;
+  
+  display: flex;
+  padding: 0 20px 0px 10px;
+  align-items: center;
+  background-color: rgb(108 117 125 / 95%);
+  border-radius: 40px;
+  box-shadow: 2px 1px 1px 1px rgb(108 117 125 / 18%);
+  transition: all 0.25s ease-in;
+  height: 150px;
+  justify-content: left;
+}
+
+.repo-column-main-div:hover{
+  background-color: #ffffff;
+  color: rgb(108 117 125 / 95%);
+}
+
+.text-align-center{
+  text-align: center;
+}
+
+.ml-20{
+  margin-left: 20px;
+}
+
+.span-repo-list{
+  font-size: 15px;
+  font-family: monospace;
+  margin-bottom: 20px;
+  cursor: pointer;
+  margin-top: 10px;
+  width: intrinsic;
+  /* width: max-content; */
+  color: #e0dddd;
+  align-items: center;
+  margin-top: 20px;
+  display: flex;
+  /* margin-left: auto; */
+  margin-right: auto;
+  display: flex;
+  /* padding: 10px 20px 10px 15px; */
+  transition: transform 250ms;
+  transition: all 0.25s ease-in;
+}
+
+.span-repo-list:hover{
+  transform: translateY(-10px);
 }
 
 .App-link {
